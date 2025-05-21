@@ -18,7 +18,9 @@ import androidx.navigation.compose.currentBackStackEntryAsState
 fun BottomNavigationBar(navController: NavHostController) {
     val currentRoute = navController.currentBackStackEntryAsState().value?.destination?.route
 
-    NavigationBar(containerColor = Color(0xFFEDE7F6)) {
+    NavigationBar(
+        containerColor = MaterialTheme.colorScheme.surface
+    ) {
         NavigationBarItem(
             icon = { Icon(Icons.Filled.Mood, contentDescription = "Check-in") },
             selected = currentRoute == "checkin",

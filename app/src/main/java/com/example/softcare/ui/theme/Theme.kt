@@ -1,4 +1,4 @@
-package com.ongs.voluntariar.ui.theme
+package com.example.softcare.ui.theme
 
 import android.app.Activity
 import android.os.Build
@@ -9,18 +9,50 @@ import androidx.compose.material3.dynamicDarkColorScheme
 import androidx.compose.material3.dynamicLightColorScheme
 import androidx.compose.material3.lightColorScheme
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.SideEffect
+import androidx.compose.ui.graphics.toArgb
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.platform.LocalView
+import androidx.core.view.WindowCompat
 
 private val DarkColorScheme = darkColorScheme(
-    primary = Purple80,
-    secondary = PurpleGrey80,
-    tertiary = Pink80
+    primary = TealPrimaryDark,
+    onPrimary = OnPrimaryDark,
+    primaryContainer = PrimaryContainerDark,
+    onPrimaryContainer = OnPrimaryContainerDark,
+    secondary = AmberSecondaryDark,
+    onSecondary = OnSecondaryDark,
+    tertiary = AmberSecondaryDark,
+    onTertiary = OnSecondaryDark,
+    background = BackgroundDarkNew,
+    onBackground = TextPrimaryDarkNew,
+    surface = SurfaceDarkNew,
+    onSurface = TextPrimaryDarkNew,
+    surfaceVariant = SurfaceVariantDark,
+    onSurfaceVariant = OnSurfaceVariantDark,
+    error = ErrorDarkNew,
+    onError = OnErrorDarkColor,
+    outline = InactiveDarkNew
 )
 
 private val LightColorScheme = lightColorScheme(
-    primary = Purple40,
-    secondary = PurpleGrey40,
-    tertiary = Pink40
+    primary = TealPrimaryLight,
+    onPrimary = OnPrimaryLight,
+    primaryContainer = PrimaryContainerLight,
+    onPrimaryContainer = OnPrimaryContainerLight,
+    secondary = AmberSecondaryLight,
+    onSecondary = OnSecondaryLight,
+    tertiary = AmberSecondaryLight,
+    onTertiary = OnSecondaryLight,
+    background = BackgroundLightNew,
+    onBackground = TextPrimaryLightNew,
+    surface = SurfaceLightNew,
+    onSurface = TextPrimaryLightNew,
+    surfaceVariant = SurfaceVariantLight,
+    onSurfaceVariant = OnSurfaceVariantLight,
+    error = ErrorLightNew,
+    onError = OnErrorLightColor,
+    outline = InactiveLightNew
 
     /* Other default colors to override
     background = Color(0xFFFFFBFE),
@@ -45,14 +77,21 @@ fun SoftCareTheme(
             val context = LocalContext.current
             if (darkTheme) dynamicDarkColorScheme(context) else dynamicLightColorScheme(context)
         }
-
         darkTheme -> DarkColorScheme
         else -> LightColorScheme
+    }
+    val view = LocalView.current
+    if (!view.isInEditMode) {
+        SideEffect {
+            val window = (view.context as Activity).window
+            window.statusBarColor = colorScheme.primary.toArgb()
+            WindowCompat.getInsetsController(window, view).isAppearanceLightStatusBars = !darkTheme
+        }
     }
 
     MaterialTheme(
         colorScheme = colorScheme,
-        typography = Typography,
+        typography = AppTypography,
         content = content
     )
 }

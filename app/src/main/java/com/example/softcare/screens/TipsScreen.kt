@@ -1,12 +1,14 @@
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import com.softcare.R
+import com.example.softcare.components.TipCard
 
 data class Tip(val title: String, val content: String, val imageRes: Int)
 
@@ -38,7 +40,7 @@ fun TipsScreen(navController: NavController) {
     Column(
         modifier = Modifier
             .fillMaxSize()
-            .background(Color(0xFFF6F6F6))
+            .background(MaterialTheme.colorScheme.background)
             .padding(16.dp)
     ) {
         LazyColumn(verticalArrangement = Arrangement.spacedBy(12.dp)) {

@@ -40,8 +40,7 @@ fun SignInScreen(navController: NavController) {
 
         Text(
             text = "Bem-vindo ao SoftCare",
-            fontSize = 20.sp,
-            fontWeight = FontWeight.Bold
+            style = MaterialTheme.typography.titleLarge
         )
 
         Spacer(modifier = Modifier.height(24.dp))
@@ -60,9 +59,12 @@ fun SignInScreen(navController: NavController) {
             },
             modifier = Modifier.fillMaxWidth(),
             shape = RoundedCornerShape(12.dp),
-            colors = ButtonDefaults.buttonColors(containerColor = Color(0xFF4A004A))
+            colors = ButtonDefaults.buttonColors(
+                containerColor = MaterialTheme.colorScheme.primary,
+                contentColor = MaterialTheme.colorScheme.onPrimary
+            )
         ) {
-            Text(text = if (loading) "Entrando..." else "Entrar", color = Color.White)
+            Text(text = if (loading) "Entrando..." else "Entrar")
         }
     }
 }
