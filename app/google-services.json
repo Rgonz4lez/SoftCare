@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "180375732554",
+    "project_id": "softcare-a991d",
+    "storage_bucket": "softcare-a991d.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:180375732554:android:dee4b3a5954afcbb1281b3",
+        "android_client_info": {
+          "package_name": "com.softcare"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDqYmq0bMpfSgOvKmCg6OHpVrhP2KLE_n4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
