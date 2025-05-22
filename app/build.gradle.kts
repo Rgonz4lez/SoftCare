@@ -62,16 +62,13 @@ dependencies {
     implementation(libs.ui.tooling.preview)
     implementation(libs.material3)
 
-    // Firebase Auth
     implementation(libs.firebase.auth.ktx)
 
-    // Vico Charts
     implementation(libs.compose.m3)
 
-    // Material Icons Extended (correto)
     implementation(libs.material.icons.extended)
+    implementation(libs.firebase.firestore.ktx)
 
-    // Testes
     testImplementation(libs.junit)
     androidTestImplementation(libs.ui.test.junit4)
     debugImplementation(libs.ui.tooling)

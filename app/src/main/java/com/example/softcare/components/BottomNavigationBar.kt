@@ -7,7 +7,6 @@ import androidx.compose.material.icons.filled.SupportAgent
 import androidx.compose.material.icons.filled.TipsAndUpdates
 import androidx.compose.material.icons.filled.BarChart
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.*
 import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.Color
@@ -18,9 +17,7 @@ import androidx.navigation.compose.currentBackStackEntryAsState
 fun BottomNavigationBar(navController: NavHostController) {
     val currentRoute = navController.currentBackStackEntryAsState().value?.destination?.route
 
-    NavigationBar(
-        containerColor = MaterialTheme.colorScheme.surface
-    ) {
+    NavigationBar(containerColor = Color.White) {
         NavigationBarItem(
             icon = { Icon(Icons.Filled.Mood, contentDescription = "Check-in") },
             selected = currentRoute == "checkin",

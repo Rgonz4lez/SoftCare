@@ -51,7 +51,7 @@ fun SignInScreen(navController: NavController) {
                 auth.signInAnonymously().addOnCompleteListener { task ->
                     loading = false
                     if (task.isSuccessful ) {
-                        navController.navigate("checkin") {
+                        navController.navigate("checkin_intro") {
                             popUpTo("signIn") { inclusive = true }
                         }
                     }

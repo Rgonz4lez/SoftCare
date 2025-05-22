@@ -2,15 +2,14 @@ package com.example.softcare.screens
 
 import android.content.Intent
 import android.net.Uri
-import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
@@ -22,22 +21,25 @@ fun SupportScreen(navController: NavController) {
     Column(
         modifier = Modifier
             .fillMaxSize()
-            .background(MaterialTheme.colorScheme.background)
             .padding(24.dp),
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         Text(
             text = "Canal de Escuta",
-            style = MaterialTheme.typography.headlineMedium,
+            style = MaterialTheme.typography.headlineMedium.copy(
+                fontWeight = FontWeight.Bold,
+                color = MaterialTheme.colorScheme.primary
+            ),
             modifier = Modifier.padding(bottom = 16.dp)
         )
 
         Text(
-            text = "Precisa conversar com alguém?\nEstamos aqui para escutar você!",
-            style = MaterialTheme.typography.titleMedium,
-            textAlign = TextAlign.Center,
-            modifier = Modifier.padding(bottom = 32.dp)
+            text = "Você não está sozinho(a).\\nSe precisar conversar, estamos aqui para escutar.",
+            fontSize = 18.sp,
+            color = MaterialTheme.colorScheme.onBackground,
+            modifier = Modifier.padding(bottom = 32.dp),
+            lineHeight = 24.sp
         )
 
         Button(
@@ -48,9 +50,10 @@ fun SupportScreen(navController: NavController) {
             },
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(horizontal = 8.dp)
+                .padding(horizontal = 8.dp),
+            colors = ButtonDefaults.buttonColors(containerColor = MaterialTheme.colorScheme.primary)
         ) {
-            Text("Falar via WhatsApp")
+            Text("Falar via WhatsApp", color = MaterialTheme.colorScheme.onPrimary)
         }
 
         Spacer(modifier = Modifier.height(12.dp))
@@ -66,12 +69,26 @@ fun SupportScreen(navController: NavController) {
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(horizontal = 8.dp),
-            colors = ButtonDefaults.buttonColors(
-                containerColor = MaterialTheme.colorScheme.secondary,
-                contentColor = MaterialTheme.colorScheme.onSecondary
-            )
+            colors = ButtonDefaults.buttonColors(containerColor = MaterialTheme.colorScheme.secondary)
         ) {
-            Text("Enviar E-mail")
+            Text("Enviar E-mail", color = MaterialTheme.colorScheme.onSecondary)
+        }
+
+        Spacer(modifier = Modifier.height(12.dp))
+
+        Button(
+            onClick = {
+                val phoneIntent = Intent(Intent.ACTION_DIAL).apply {
+                    data = Uri.parse("tel:188")
+                }
+                context.startActivity(phoneIntent)
+            },
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(horizontal = 8.dp),
+            colors = ButtonDefaults.buttonColors(containerColor = Color(0xFFD32F2F)) // vermelho suave
+        ) {
+            Text("Ligar 188 ", color = Color.White)
         }
     }
 }

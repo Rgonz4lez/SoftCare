@@ -14,6 +14,7 @@ espressoCore = "3.6.1"
 firebaseAuthKtx = "23.2.1"
 supportAnnotations = "28.0.0"
 materialIconsExtended = "1.7.8"
+firebaseFirestoreKtx = "25.1.4"
 
 [libraries]
 vico-compose = { group = "com.patrykandpatrick.vico", name = "compose", version = "1.13.0" }
@@ -44,6 +45,7 @@ androidx-junit = { group = "androidx.test.ext", name = "junit", version.ref = "a
 androidx-espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espressoCore" }
 
 support-annotations = { group = "com.android.support", name = "support-annotations", version.ref = "supportAnnotations" }
+firebase-firestore-ktx = { group = "com.google.firebase", name = "firebase-firestore-ktx", version.ref = "firebaseFirestoreKtx" }
 
 [plugins]
 androidApplication = { id = "com.android.application", version = "8.9.2" }
