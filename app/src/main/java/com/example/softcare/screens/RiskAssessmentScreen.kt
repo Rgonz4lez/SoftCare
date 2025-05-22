@@ -13,6 +13,7 @@ import androidx.navigation.NavHostController
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.runtime.saveable.rememberSaveable
+import androidx.compose.ui.text.style.TextAlign
 import com.example.softcare.viewModel.AssessmentModel
 
 @Composable
@@ -61,7 +62,11 @@ fun RiskAssessmentScreen(
                     text = question,
                     fontSize = 16.sp,
                     fontWeight = FontWeight.Medium,
-                    color = MaterialTheme.colorScheme.onBackground
+                    color = MaterialTheme.colorScheme.onBackground,
+                    textAlign = TextAlign.Start,
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .widthIn(max = 320.dp)
                 )
                 Row(
                     horizontalArrangement = Arrangement.spacedBy(12.dp),

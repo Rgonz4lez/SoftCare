@@ -35,11 +35,14 @@ fun SupportScreen(navController: NavController) {
         )
 
         Text(
-            text = "Você não está sozinho(a).\\nSe precisar conversar, estamos aqui para escutar.",
+            text = "Você não está sozinho(a)!\nSe precisar conversar, estamos aqui para escutar.",
             fontSize = 18.sp,
             color = MaterialTheme.colorScheme.onBackground,
-            modifier = Modifier.padding(bottom = 32.dp),
-            lineHeight = 24.sp
+            lineHeight = 24.sp,
+            textAlign = androidx.compose.ui.text.style.TextAlign.Center,
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(bottom = 32.dp)
         )
 
         Button(

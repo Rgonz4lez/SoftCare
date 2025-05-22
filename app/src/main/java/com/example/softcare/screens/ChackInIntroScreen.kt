@@ -3,6 +3,7 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Button
@@ -13,9 +14,11 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
+import com.example.softcare.ui.theme.Purple
 
 @Composable
 fun CheckInIntroScreen(navController: NavController) {
@@ -40,16 +43,17 @@ fun CheckInIntroScreen(navController: NavController) {
         Text(
             text = "Gostaria de fazer um check-in emocional para acompanhar como você está se sentindo hoje?",
             fontSize = 16.sp,
-            color = Color.DarkGray
+            color = Color.DarkGray,
+            textAlign = TextAlign.Center,
+            modifier = Modifier.fillMaxWidth()
         )
-
         Spacer(modifier = Modifier.height(32.dp))
 
         Button(
             onClick = {
                 navController.navigate("checkin")
             },
-            colors = ButtonDefaults.buttonColors(containerColor = Color(0xFF4A004A))
+            colors = ButtonDefaults.buttonColors(containerColor = Purple)
         ) {
             Text("Sim, quero fazer", color = Color.White)
         }

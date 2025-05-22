@@ -2,7 +2,14 @@ package com.example.softcare.ui.theme
 
 import androidx.compose.ui.graphics.Color
 
-// NOVA PALETA: Teal e Amber
+val Purple= Color(0xFF450B47)
+val PurpleGrey = Color(0xFFCCC2DC)
+val Pink = Color(0xFFEFB8C8)
+
+val Purple40 = Color(0xFF450B47)
+val PurpleGrey2= Color(0xFF625b71)
+val Pink40 = Color(0xFF7D5260)
+
 
 // Modo Claro
 val TealPrimaryLight = Color(0xFF00897B)
@@ -40,3 +47,4 @@ val SurfaceVariantDark = Color(0xFF3C3C3C) // Um pouco mais claro que o surface 
 val OnSurfaceVariantDark = TextPrimaryDarkNew
 val PrimaryContainerDark = TealPrimaryDark.copy(alpha = 0.2f)
 val OnPrimaryContainerDark = TealPrimaryDark
+

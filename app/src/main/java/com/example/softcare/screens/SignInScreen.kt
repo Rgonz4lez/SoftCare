@@ -14,6 +14,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
+import com.example.softcare.ui.theme.Purple
 import com.google.firebase.auth.FirebaseAuth
 import com.softcare.R
 
@@ -50,17 +51,19 @@ fun SignInScreen(navController: NavController) {
                 loading = true
                 auth.signInAnonymously().addOnCompleteListener { task ->
                     loading = false
-                    if (task.isSuccessful ) {
+                    if (task.isSuccessful) {
                         navController.navigate("checkin_intro") {
-                            popUpTo("signIn") { inclusive = true }
+                            popUpTo("signin") { inclusive = true }
                         }
+                    } else {
+                        println("Erro ao fazer login anônimo: ${task.exception?.localizedMessage}")
                     }
                 }
             },
             modifier = Modifier.fillMaxWidth(),
             shape = RoundedCornerShape(12.dp),
             colors = ButtonDefaults.buttonColors(
-                containerColor = MaterialTheme.colorScheme.primary,
+                containerColor = Purple,
                 contentColor = MaterialTheme.colorScheme.onPrimary
             )
         ) {

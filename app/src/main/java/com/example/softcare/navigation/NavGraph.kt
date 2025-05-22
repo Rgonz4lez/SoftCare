@@ -1,8 +1,3 @@
-package com.example.softcare.navigation
-
-import CheckInIntroScreen
-import CheckInModel
-import StatisticsScreen
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
@@ -20,12 +15,8 @@ import com.example.softcare.screens.SupportScreen
 import com.example.softcare.screens.TipsScreen
 import com.example.softcare.viewModel.AssessmentModel
 
-
 @Composable
 fun NavGraph(navController: NavHostController) {
-    val checkInViewModel: CheckInModel  =  viewModel()
-    val assessmentViewModel: AssessmentModel = viewModel()
-
     val currentBackStackEntry = navController.currentBackStackEntryAsState()
     val currentRoute = currentBackStackEntry.value?.destination?.route
 
@@ -45,10 +36,16 @@ fun NavGraph(navController: NavHostController) {
         ) {
             composable("signin") { SignInScreen(navController) }
             composable("checkin_intro") { CheckInIntroScreen(navController) }
-            composable("checkin") { CheckInScreen(navController, checkInViewModel) }
+            composable("checkin") {
+                val viewModel: CheckInModel = viewModel()
+                CheckInScreen(navController, viewModel)
+            }
             composable("tips") { TipsScreen(navController) }
             composable("support") { SupportScreen(navController) }
-            composable("assessment") { RiskAssessmentScreen(navController, assessmentViewModel) }
+            composable("assessment") {
+                val viewModel: AssessmentModel = viewModel()
+                RiskAssessmentScreen(navController, viewModel)
+            }
             composable("stats") { StatisticsScreen(navController) }
         }
     }
