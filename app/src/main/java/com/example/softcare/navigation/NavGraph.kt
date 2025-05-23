@@ -15,11 +15,12 @@ import com.example.softcare.screens.SupportScreen
 import com.example.softcare.screens.TipsScreen
 import com.example.softcare.viewModel.AssessmentModel
 
+
 @Composable
 fun NavGraph(navController: NavHostController) {
     val currentBackStackEntry = navController.currentBackStackEntryAsState()
     val currentRoute = currentBackStackEntry.value?.destination?.route
-
+    val assessmentViewModel: AssessmentModel = viewModel()
     val bottomBarScreens = listOf("checkin", "tips", "support", "assessment", "stats")
 
     Scaffold(
@@ -43,10 +44,10 @@ fun NavGraph(navController: NavHostController) {
             composable("tips") { TipsScreen(navController) }
             composable("support") { SupportScreen(navController) }
             composable("assessment") {
-                val viewModel: AssessmentModel = viewModel()
-                RiskAssessmentScreen(navController, viewModel)
+                RiskAssessmentScreen(navController, assessmentViewModel)
             }
-            composable("stats") { StatisticsScreen(navController) }
+            composable("stats") {  val viewModel: AssessmentModel = viewModel()
+                StatisticsScreen(navController, viewModel()) }
         }
     }
 }

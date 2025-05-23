@@ -97,18 +97,17 @@ fun RiskAssessmentScreen(
                 modifier = Modifier.fillMaxWidth(),
                 horizontalArrangement = Arrangement.Center
             ) {
-                Button(
-                    onClick = {
-                        viewModel.sendAssessmentToFirebase(
-                            onSuccess = { confirmed = true },
-                            onFailure = { e ->
-                                println("Erro ao salvar: ${e.localizedMessage}")
-                            }
-                        )
-                    },
-                    colors = ButtonDefaults.buttonColors(containerColor = MaterialTheme.colorScheme.primary)
-                ) {
-                    Text("Confirmar Avaliação", color = MaterialTheme.colorScheme.onPrimary)
+                if (allAnswered && !confirmed) {
+                    Button(
+                        onClick = {
+                            viewModel.sendAssessmentToFirebase(
+                                onSuccess = { confirmed = true },
+                                onFailure = { e -> println("Erro ao salvar: ${e.localizedMessage}") }
+                            )
+                        }
+                    ) {
+                        Text("Confirmar Avaliação")
+                    }
                 }
             }
         }
