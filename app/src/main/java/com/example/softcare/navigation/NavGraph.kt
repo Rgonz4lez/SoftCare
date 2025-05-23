@@ -47,7 +47,7 @@ fun NavGraph(navController: NavHostController) {
                 RiskAssessmentScreen(navController, assessmentViewModel)
             }
             composable("stats") {  val viewModel: AssessmentModel = viewModel()
-                StatisticsScreen(navController, viewModel()) }
+                StatisticsScreen(navController) }
         }
     }
 }

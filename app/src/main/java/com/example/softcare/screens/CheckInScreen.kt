@@ -19,7 +19,6 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 
-
 @Composable
 fun CheckInScreen(navController: NavController, viewModel: CheckInModel) {
     val selectedMood = viewModel.selectedMood
@@ -82,10 +81,17 @@ fun CheckInScreen(navController: NavController, viewModel: CheckInModel) {
 
                 Button(
                     onClick = {
-                        navController.navigate("tips") {
-                            popUpTo("checkin") { inclusive = true }
-                            launchSingleTop = true
-                        }
+                        viewModel.saveCheckIn(
+                            onSuccess = {
+                                navController.navigate("tips") {
+                                    popUpTo("checkin") { inclusive = true }
+                                    launchSingleTop = true
+                                }
+                            },
+                            onFailure = { e ->
+                                println("Erro ao salvar check-in: ${e.localizedMessage}")
+                            }
+                        )
                     },
                     colors = ButtonDefaults.buttonColors(containerColor = MaterialTheme.colorScheme.primary)
                 ) {
